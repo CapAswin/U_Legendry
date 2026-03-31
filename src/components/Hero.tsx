@@ -40,7 +40,7 @@ export function Hero() {
           className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 py-1 text-sm font-medium text-black/80 dark:text-white/80 mb-8 backdrop-blur-md"
         >
           <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
-          We are Ulegendary
+          Established 2015
         </motion.div>
 
         {/* Main headline with gradient text effect */}
@@ -50,11 +50,11 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-black dark:text-white max-w-5xl leading-[0.9]"
         >
-          Crafting{" "}
+          Ultimate{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
-            Digital
+            Legendary
           </span>{" "}
-          Excellence.
+          Marketing.
         </motion.h1>
 
         {/* Subtitle describing our services */}
@@ -64,8 +64,11 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-lg md:text-xl text-black/60 dark:text-white/60 max-w-2xl font-medium"
         >
-          We build high-end software solutions, immersive web experiences, and
-          legendary digital products that redefine the standard.
+          Established in 2015, we're on a mission to provide quality &
+          affordable IT Solutions. Soon became one of the leading web design
+          companies in Dubai, UAE, UK, USA. Our IT professionals successfully
+          deliver best web design, software development, digital marketing, web
+          hosting & graphic design services to our customers.
         </motion.p>
 
         {/* Call-to-action buttons */}
@@ -76,10 +79,10 @@ export function Hero() {
           className="mt-12 flex flex-col sm:flex-row items-center gap-4"
         >
           <a
-            href="#projects"
+            href="#services"
             className="px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
           >
-            Explore Work
+            Our Services
           </a>
           <a
             href="#contact"
