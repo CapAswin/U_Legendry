@@ -1,0 +1,82 @@
+"use client";
+
+import { motion, useScroll, useTransform } from 'motion/react';
+import { useRef } from 'react';
+
+export function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black"
+    >
+      <motion.div
+        style={{ y, opacity }}
+        className="relative z-10 flex flex-col items-center justify-center text-center px-4"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 py-1 text-sm font-medium text-black/80 dark:text-white/80 mb-8 backdrop-blur-md"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
+          We are Ulegendary
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-black dark:text-white max-w-5xl leading-[0.9]"
+        >
+          Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Digital</span> Excellence.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 text-lg md:text-xl text-black/60 dark:text-white/60 max-w-2xl font-medium"
+        >
+          We build high-end software solutions, immersive web experiences, and legendary digital products that redefine the standard.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+        >
+          <a
+            href="#projects"
+            className="px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+          >
+            Explore Work
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-4 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white font-semibold tracking-wide hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-300"
+          >
+            Get in Touch
+          </a>
+        </motion.div>
+      </motion.div>
+
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-[128px] mix-blend-multiply dark:mix-blend-screen animate-blob"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[128px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-500/20 dark:bg-pink-500/10 rounded-full blur-[128px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-4000"></div>
+      </div>
+    </section>
+  );
+}
