@@ -1,27 +1,38 @@
 "use client";
 
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
+/**
+ * Hero section component with scroll-based parallax and entrance animations
+ * Features animated background blobs and call-to-action buttons
+ */
 export function Hero() {
-  const ref = useRef(null);
+  // Reference for the hero section to track scroll position
+  const heroSectionRef = useRef<HTMLElement>(null);
+
+  // Track scroll progress relative to this section
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
+    target: heroSectionRef,
+    offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  // Parallax effect: move content up as user scrolls
+  const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  // Fade out effect as user scrolls down
+  const fadeOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <section
-      ref={ref}
+      ref={heroSectionRef}
       className="relative h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black"
     >
       <motion.div
-        style={{ y, opacity }}
+        style={{ y: parallaxY, opacity: fadeOpacity }}
         className="relative z-10 flex flex-col items-center justify-center text-center px-4"
       >
+        {/* Animated badge showing we're live/active */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,24 +43,32 @@ export function Hero() {
           We are Ulegendary
         </motion.div>
 
+        {/* Main headline with gradient text effect */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-black dark:text-white max-w-5xl leading-[0.9]"
         >
-          Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Digital</span> Excellence.
+          Crafting{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            Digital
+          </span>{" "}
+          Excellence.
         </motion.h1>
 
+        {/* Subtitle describing our services */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 text-lg md:text-xl text-black/60 dark:text-white/60 max-w-2xl font-medium"
         >
-          We build high-end software solutions, immersive web experiences, and legendary digital products that redefine the standard.
+          We build high-end software solutions, immersive web experiences, and
+          legendary digital products that redefine the standard.
         </motion.p>
 
+        {/* Call-to-action buttons */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -71,7 +90,7 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Decorative Background Elements */}
+      {/* Animated background blobs for visual interest */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 dark:bg-blue-500/10 rounded-full blur-[128px] mix-blend-multiply dark:mix-blend-screen animate-blob"></div>
         <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/10 rounded-full blur-[128px] mix-blend-multiply dark:mix-blend-screen animate-blob animation-delay-2000"></div>
