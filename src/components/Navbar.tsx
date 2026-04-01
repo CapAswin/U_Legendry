@@ -44,9 +44,12 @@ export function Navbar() {
             : "w-full sm:max-w-6xl lg:max-w-7xl px-2 py-2 bg-transparent border border-transparent rounded-none shadow-none",
         )}
       >
-        <div className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter text-black dark:text-white/95">
+        <a
+          href="#hero"
+          className="text-lg sm:text-xl md:text-2xl font-bold tracking-tighter text-black dark:text-white/95"
+        >
           ULEGENDRY.
-        </div>
+        </a>
 
         <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-medium text-black/80 dark:text-white/90">
           <a
@@ -60,12 +63,6 @@ export function Navbar() {
             className="hover:text-black dark:hover:text-white/100 transition-colors"
           >
             Portfolio
-          </a>
-          <a
-            href="#projects"
-            className="hover:text-black dark:hover:text-white/100 transition-colors"
-          >
-            Insights
           </a>
           <a
             href="#contact"

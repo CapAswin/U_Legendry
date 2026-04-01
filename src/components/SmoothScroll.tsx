@@ -4,25 +4,43 @@ import Lenis from "lenis";
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5, // Increased for ultra smooth
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 1.7,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.2, // Slightly increased
-      touchMultiplier: 3, // Increased for better mobile feel
+      wheelMultiplier: 1.1,
+      touchMultiplier: 2.2,
     });
 
     // Handle anchor link clicks for smooth scrolling
     const handleAnchorClick = (e: Event) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest("a") as HTMLAnchorElement;
-      if (link && link.hash && link.hash.startsWith("#")) {
-        e.preventDefault();
-        const targetElement = document.querySelector(link.hash) as HTMLElement;
-        if (targetElement) {
-          lenis.scrollTo(targetElement, { offset: -80 }); // Offset for navbar
-        }
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+
+      const link = target.closest('a[href^="#"]') as HTMLAnchorElement | null;
+      if (!link) return;
+
+      const hash = link.getAttribute("href");
+      if (!hash) return;
+
+      e.preventDefault();
+
+      if (hash === "#" || hash === "#hero") {
+        lenis.scrollTo(0, {
+          duration: 1.8,
+          lerp: 0.08,
+        });
+        return;
+      }
+
+      const targetElement = document.querySelector(hash);
+      if (targetElement instanceof HTMLElement) {
+        lenis.scrollTo(targetElement, {
+          offset: -80,
+          duration: 1.8,
+          lerp: 0.08,
+        });
       }
     };
 
