@@ -26,11 +26,11 @@ export function Hero() {
   return (
     <section
       ref={heroSectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black pt-10 sm:pt-8"
     >
       <motion.div
         style={{ y: parallaxY, opacity: fadeOpacity }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8 max-w-7xl mx-auto"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-5 sm:px-6 md:px-8 max-w-7xl mx-auto"
       >
         {/* Animated badge showing we're live/active */}
         <motion.div
