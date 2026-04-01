@@ -26,18 +26,18 @@ export function Hero() {
   return (
     <section
       ref={heroSectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black"
     >
       <motion.div
         style={{ y: parallaxY, opacity: fadeOpacity }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-4"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 md:px-8 max-w-7xl mx-auto"
       >
         {/* Animated badge showing we're live/active */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 py-1 text-sm font-medium text-black/80 dark:text-white/80 mb-8 backdrop-blur-md"
+          className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-black/80 dark:text-white/80 mb-6 sm:mb-8 backdrop-blur-md"
         >
           <span className="flex h-2 w-2 rounded-full bg-blue-500 mr-2 animate-pulse"></span>
           Established 2015
@@ -48,7 +48,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-black dark:text-white max-w-5xl leading-[0.9]"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold tracking-tight text-black dark:text-white max-w-[92vw] sm:max-w-3xl leading-tight md:leading-[1.05] mb-4 sm:mb-6"
         >
           Ultimate{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
@@ -62,7 +62,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 text-lg md:text-xl text-black/60 dark:text-white/60 max-w-2xl font-medium"
+          className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-black/70 dark:text-white/70 max-w-[90vw] sm:max-w-2xl font-medium leading-relaxed md:leading-loose"
         >
           Established in 2015, we're on a mission to provide quality &
           affordable IT Solutions. Soon became one of the leading web design
@@ -76,17 +76,17 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-12 flex flex-col sm:flex-row items-center gap-4"
+          className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-3 sm:gap-4"
         >
           <a
             href="#services"
-            className="px-8 py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold tracking-wide hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)] text-sm sm:text-base"
           >
             Our Services
           </a>
           <a
             href="#contact"
-            className="px-8 py-4 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white font-semibold tracking-wide hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-300"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-black/10 dark:border-white/10 text-black dark:text-white font-semibold tracking-wide hover:bg-black/5 dark:hover:bg-white/5 transition-colors duration-300 text-sm sm:text-base"
           >
             Get in Touch
           </a>
