@@ -24,6 +24,7 @@ export function Navbar() {
         .matches
         ? "dark"
         : "light";
+
       setTheme(systemTheme === "dark" ? "light" : "dark");
     } else {
       setTheme(theme === "dark" ? "light" : "dark");
