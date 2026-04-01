@@ -3,44 +3,42 @@ import Lenis from "lenis";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
-    // Check if device is mobile
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
     const lenis = new Lenis({
-      // Duration controls scroll smoothness - shorter = faster feel
-      duration: isMobile ? 1.0 : 1.5,
-      // Advanced easing for butter-smooth scrolling
-      easing: (t) => {
-        // Custom easing: exponential ease-out for ultimate smoothness
-        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-      },
+      duration: 1.5, // Increased for ultra smooth
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
-      // Enable smooth mouse wheel scrolling
       smoothWheel: true,
-      // Smoothing factor - how much to smooth consecutive frames
-      smoothTouch: true,
-      // Multipliers for different input types
-      wheelMultiplier: isMobile ? 0.8 : 1,
-      touchMultiplier: isMobile ? 1.5 : 1.2,
-      // Infinite momentum for ultra-smooth feel
-      infinite: false,
-      // Auto-detect device capabilities
-      autoRaf: false,
+      wheelMultiplier: 1.2, // Slightly increased
+      touchMultiplier: 3, // Increased for better mobile feel
+      normalizeWheel: true, // Normalize wheel events
     });
 
-    // Advanced RAF loop with time management for consistent smoothness
-    let rafId: number;
+    // Handle anchor link clicks for smooth scrolling
+    const handleAnchorClick = (e: Event) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest("a") as HTMLAnchorElement;
+      if (link && link.hash && link.hash.startsWith("#")) {
+        e.preventDefault();
+        const targetElement = document.querySelector(link.hash);
+        if (targetElement) {
+          lenis.scrollTo(targetElement, { offset: -80 }); // Offset for navbar
+        }
+      }
+    };
+
+    // Add event listener to document for anchor links
+    document.addEventListener("click", handleAnchorClick);
+
     function raf(time: number) {
       lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+      requestAnimationFrame(raf);
     }
 
-    rafId = requestAnimationFrame(raf);
+    requestAnimationFrame(raf);
 
-    // Cleanup
     return () => {
-      cancelAnimationFrame(rafId);
+      document.removeEventListener("click", handleAnchorClick);
       lenis.destroy();
     };
   }, []);

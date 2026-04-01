@@ -49,7 +49,7 @@ export default function App() {
             <SectionSeparator />
 
             {/* Service categories */}
-            <Categories />
+            <Categories id="services" />
             <SectionSeparator />
 
             {/* Team members */}

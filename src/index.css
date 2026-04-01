@@ -55,53 +55,257 @@
   animation-play-state: paused;
 }
 
-/* ===== ULTRA-SMOOTH SCROLLING ===== */
+/* Ultra-responsive utilities */
+@media (max-width: 640px) {
+  .text-responsive-xs {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  .text-responsive-sm {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .text-responsive-md {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  .text-responsive-lg {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+  .text-responsive-xl {
+    font-size: clamp(3.5rem, 14vw, 6rem);
+  }
+  .text-responsive-2xl {
+    font-size: clamp(4rem, 16vw, 7rem);
+  }
+  .text-responsive-3xl {
+    font-size: clamp(4.5rem, 18vw, 8rem);
+  }
+}
 
-/* Root scrolling optimization */
+@media (min-width: 641px) and (max-width: 768px) {
+  .text-responsive-xs {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+  }
+  .text-responsive-sm {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+  }
+  .text-responsive-md {
+    font-size: clamp(3rem, 7vw, 4.5rem);
+  }
+  .text-responsive-lg {
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+  }
+  .text-responsive-xl {
+    font-size: clamp(4rem, 9vw, 6.5rem);
+  }
+  .text-responsive-2xl {
+    font-size: clamp(4.5rem, 10vw, 7.5rem);
+  }
+  .text-responsive-3xl {
+    font-size: clamp(5rem, 11vw, 8.5rem);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .text-responsive-xs {
+    font-size: clamp(2.5rem, 4vw, 3rem);
+  }
+  .text-responsive-sm {
+    font-size: clamp(3rem, 5vw, 4rem);
+  }
+  .text-responsive-md {
+    font-size: clamp(3.5rem, 6vw, 5rem);
+  }
+  .text-responsive-lg {
+    font-size: clamp(4rem, 7vw, 6rem);
+  }
+  .text-responsive-xl {
+    font-size: clamp(4.5rem, 8vw, 7rem);
+  }
+  .text-responsive-2xl {
+    font-size: clamp(5rem, 9vw, 8rem);
+  }
+  .text-responsive-3xl {
+    font-size: clamp(5.5rem, 10vw, 9rem);
+  }
+}
+
+@media (min-width: 1025px) {
+  .text-responsive-xs {
+    font-size: 3rem;
+  }
+  .text-responsive-sm {
+    font-size: 4rem;
+  }
+  .text-responsive-md {
+    font-size: 5rem;
+  }
+  .text-responsive-lg {
+    font-size: 6rem;
+  }
+  .text-responsive-xl {
+    font-size: 7rem;
+  }
+  .text-responsive-2xl {
+    font-size: 8rem;
+  }
+  .text-responsive-3xl {
+    font-size: 9rem;
+  }
+}
+
+/* Container utilities for better responsive spacing */
+.container-responsive {
+  @apply w-full max-w-7xl mx-auto;
+}
+
+@media (max-width: 640px) {
+  .container-responsive {
+    @apply px-4;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container-responsive {
+    @apply px-8;
+  }
+}
+
+@media (min-width: 1025px) {
+  .container-responsive {
+    @apply px-12 lg:px-24;
+  }
+}
+
+/* Section spacing utilities */
+.section-spacing {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+@media (max-width: 640px) {
+  .section-spacing {
+    @apply py-12;
+  }
+}
+
+/* Grid utilities for better responsive layouts */
+.grid-responsive-1 {
+  @apply grid grid-cols-1;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-1 {
+    @apply grid-cols-1;
+  }
+}
+
+.grid-responsive-2 {
+  @apply grid grid-cols-1;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-2 {
+    @apply sm:grid-cols-2;
+  }
+}
+
+.grid-responsive-3 {
+  @apply grid grid-cols-1;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-3 {
+    @apply sm:grid-cols-2;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-3 {
+    @apply md:grid-cols-3;
+  }
+}
+
+.grid-responsive-4 {
+  @apply grid grid-cols-1;
+}
+
+@media (min-width: 640px) {
+  .grid-responsive-4 {
+    @apply sm:grid-cols-2;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-responsive-4 {
+    @apply md:grid-cols-3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive-4 {
+    @apply lg:grid-cols-4;
+  }
+}
+
+/* Flex utilities for better responsive layouts */
+.flex-responsive {
+  @apply flex flex-col;
+}
+
+@media (min-width: 640px) {
+  .flex-responsive {
+    @apply sm:flex-row;
+  }
+}
+
+/* Text size utilities */
+.text-hero {
+  @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl;
+}
+
+.text-section-title {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+}
+
+.text-section-subtitle {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+
+.text-body {
+  @apply text-base sm:text-lg;
+}
+
+.text-small {
+  @apply text-sm sm:text-base;
+}
+
+/* Spacing utilities */
+.space-responsive {
+  @apply space-y-4 sm:space-y-6 md:space-y-8;
+}
+
+.gap-responsive {
+  @apply gap-4 sm:gap-6 md:gap-8 lg:gap-12;
+}
+
+.margin-responsive {
+  @apply mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-24;
+}
+
+.padding-responsive {
+  @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24;
+  @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+}
+
 html {
-  scroll-behavior: smooth;
-  /* Enable GPU acceleration for scroll */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Optimize for 60fps scrolling */
-  will-change: scroll-position;
+  /* scroll-behavior: smooth; */ /* Removed to let Lenis handle smooth scrolling */
+  touch-action: pan-y; /* Allow vertical touch scroll on mobile while preserving custom smooth scroll behavior */
 }
 
-/* Body optimization */
 body {
-  /* Enable GPU acceleration */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-  /* Smooth scrolling on Safari */
-  -webkit-overflow-scrolling: touch;
-  /* Disable tap highlight on mobile */
-  -webkit-tap-highlight-color: transparent;
+  padding-top: 4rem; /* keep content from hiding behind the fixed navbar */
 }
 
-/* Optimize scrollable elements */
-* {
-  /* Enable GPU acceleration for transforms */
-  transform: translateZ(0);
-}
-
-/* Viewport meta equivalent for smooth scrolling */
-@supports (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: smooth;
-  }
-}
-
-/* Mobile optimization for smooth scrolltouch */
-@media (hover: none) and (pointer: coarse) {
-  html {
-    /* Smooth touch scrolling on iOS */
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
+@media (max-width: 640px) {
   body {
-    /* Enable smooth scrolling on mobile Safari */
-    overflow-scrolling: touch;
+    padding-top: 3.6rem;
   }
 }

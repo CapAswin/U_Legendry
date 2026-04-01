@@ -23,39 +23,42 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative overflow-hidden bg-black text-white py-24 md:py-32 px-6 md:px-24"
+      id="contact"
+      className="relative overflow-hidden bg-black text-white py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-24"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-16 md:mb-24">
+        <ScrollReveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 md:gap-16 mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           <div className="lg:col-span-2">
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter mb-6 sm:mb-8">
               Let's create
               <br />
               something legendary.
             </h2>
             <a
               href="mailto:info@ulegendary.com"
-              className="inline-flex items-center gap-2 text-2xl font-medium hover:text-blue-400 transition-colors group"
+              className="inline-flex items-center gap-2 text-xl sm:text-2xl font-medium hover:text-blue-400 transition-colors group"
             >
               info@ulegendary.com
-              <ArrowUpRight className="h-6 w-6 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
-            <div className="mt-4 space-y-2">
-              <p className="text-xl text-white/80">Phone:</p>
-              <p className="text-lg">+971 55 411 8178</p>
-              <p className="text-lg">+971 4 577 4866</p>
+            <div className="mt-4 sm:mt-6 space-y-2">
+              <p className="text-base sm:text-lg text-white/80">Phone:</p>
+              <p className="text-sm sm:text-base sm:text-lg">
+                +971 55 411 8178
+              </p>
+              <p className="text-sm sm:text-base sm:text-lg">+971 4 577 4866</p>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white/50 uppercase tracking-widest">
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white/50 uppercase tracking-widest">
               Top Services
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Digital Marketing Strategies
                 </a>
@@ -63,7 +66,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Effective SEO Services
                 </a>
@@ -71,7 +74,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Creative Branding & Interiors
                 </a>
@@ -79,7 +82,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Custom Website & App Solutions
                 </a>
@@ -87,7 +90,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Professional Video & Photography
                 </a>
@@ -96,14 +99,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white/50 uppercase tracking-widest">
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white/50 uppercase tracking-widest">
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Our Services
                 </a>
@@ -111,7 +114,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Insights & Articles
                 </a>
@@ -119,7 +122,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Get in Touch
                 </a>
@@ -127,7 +130,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   FAQs
                 </a>
@@ -135,7 +138,7 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  className="text-xl hover:text-blue-400 transition-colors"
+                  className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Join Our Team
                 </a>
@@ -144,10 +147,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white/50 uppercase tracking-widest">
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6 text-white/50 uppercase tracking-widest">
               Contact Details
             </h3>
-            <address className="not-italic text-xl text-white/80 space-y-2">
+            <address className="not-italic text-sm sm:text-base lg:text-xl text-white/80 space-y-1 sm:space-y-2">
               <p>Office # 803 - 8th Floor</p>
               <p>White Swan Building</p>
               <p>Trade Centre District, Sheikh Zayed Road</p>
@@ -158,13 +161,13 @@ export function Footer() {
 
         <ScrollReveal
           delay={0.2}
-          className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 text-white/50 text-sm"
+          className="flex flex-col sm:flex-row items-center justify-between pt-6 sm:pt-8 border-t border-white/10 text-white/50 text-xs sm:text-sm"
         >
           <p>
             &copy; {new Date().getFullYear()} Ultimate Legendary Marketing
             Services Via Social Media Est. All rights reserved.
           </p>
-          <div className="flex gap-8 mt-4 md:mt-0">
+          <div className="flex gap-6 sm:gap-8 mt-3 sm:mt-0">
             <a href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
