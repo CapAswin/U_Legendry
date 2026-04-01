@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -9,7 +9,7 @@
   --animate-blob: blob 7s infinite;
   --animate-marquee-left: marquee-left 40s linear infinite;
   --animate-marquee-right: marquee-right 40s linear infinite;
-  
+
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
@@ -26,13 +26,21 @@
   }
 
   @keyframes marquee-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   @keyframes marquee-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -47,6 +55,53 @@
   animation-play-state: paused;
 }
 
+/* ===== ULTRA-SMOOTH SCROLLING ===== */
+
+/* Root scrolling optimization */
 html {
   scroll-behavior: smooth;
+  /* Enable GPU acceleration for scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Optimize for 60fps scrolling */
+  will-change: scroll-position;
+}
+
+/* Body optimization */
+body {
+  /* Enable GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Smooth scrolling on Safari */
+  -webkit-overflow-scrolling: touch;
+  /* Disable tap highlight on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize scrollable elements */
+* {
+  /* Enable GPU acceleration for transforms */
+  transform: translateZ(0);
+}
+
+/* Viewport meta equivalent for smooth scrolling */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Mobile optimization for smooth scrolltouch */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    /* Smooth touch scrolling on iOS */
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    /* Enable smooth scrolling on mobile Safari */
+    overflow-scrolling: touch;
+  }
 }
