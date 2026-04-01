@@ -3,11 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ULegendary builds high-performance websites, digital campaigns, branding systems, and growth-ready product experiences for ambitious teams."
+    />
+    <meta
+      name="keywords"
+      content="web design, web development, branding, digital marketing, SEO, Dubai agency, performance optimization"
+    />
+    <meta name="theme-color" content="#050816" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ULegendary" />
+    <meta
+      property="og:description"
+      content="High-performance modern web solutions, branding, and digital marketing experiences engineered for speed and growth."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ULegendary" />
+    <meta
+      name="twitter:description"
+      content="High-performance modern web solutions, branding, and digital marketing experiences engineered for speed and growth."
+    />
     <title>ULegendary</title>
-    <script type="module" crossorigin src="/U_Legendry/assets/index-HIlnEVqT.js"></script>
-    <link rel="stylesheet" crossorigin href="/U_Legendry/assets/index-FSsb6Eqz.css">
+    <script>
+      (() => {
+        const storageKey = "ulegendary-theme";
+        const stored = localStorage.getItem(storageKey);
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = stored === "light" || stored === "dark" ? stored : systemDark ? "dark" : "light";
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.documentElement.classList.toggle("light", theme === "light");
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="/U_Legendry/assets/index-BXKeYXTZ.js"></script>
+    <link rel="modulepreload" crossorigin href="/U_Legendry/assets/vendor-B0BoMS5d.js">
+    <link rel="modulepreload" crossorigin href="/U_Legendry/assets/react-vendor-D6kkW8Yd.js">
+    <link rel="modulepreload" crossorigin href="/U_Legendry/assets/motion-BB9iOGoj.js">
+    <link rel="stylesheet" crossorigin href="/U_Legendry/assets/index-DDR418St.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
