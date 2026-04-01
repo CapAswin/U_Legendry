@@ -57,7 +57,7 @@ export function Footer() {
             <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Digital Marketing Strategies
@@ -65,7 +65,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Effective SEO Services
@@ -73,7 +73,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Creative Branding & Interiors
@@ -81,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#projects"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Custom Website & App Solutions
@@ -89,7 +89,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#contact"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Professional Video & Photography
@@ -105,7 +105,7 @@ export function Footer() {
             <ul className="space-y-3 sm:space-y-4">
               <li>
                 <a
-                  href="#"
+                  href="#services"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Our Services
@@ -113,7 +113,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#projects"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Insights & Articles
@@ -121,7 +121,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#contact"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Get in Touch
@@ -129,7 +129,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#team"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   FAQs
@@ -137,7 +137,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#team"
                   className="text-base sm:text-lg lg:text-xl hover:text-blue-400 transition-colors"
                 >
                   Join Our Team
@@ -168,10 +168,10 @@ export function Footer() {
             Services Via Social Media Est. All rights reserved.
           </p>
           <div className="flex gap-6 sm:gap-8 mt-3 sm:mt-0">
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#contact" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#contact" className="hover:text-white transition-colors">
               Terms of Service
             </a>
           </div>

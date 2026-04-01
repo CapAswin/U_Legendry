@@ -11,10 +11,20 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        ticking = false;
+      });
     };
-    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -74,6 +84,11 @@ export function Navbar() {
 
         <button
           onClick={toggleTheme}
+          type="button"
+          aria-label={
+            theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+          }
+          title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
           className="p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-colors"
         >
           <Sun className="h-4 w-4 sm:h-5 sm:w-5 hidden dark:block text-white" />

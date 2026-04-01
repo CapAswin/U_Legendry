@@ -87,8 +87,8 @@ export function Features() {
                       key={i}
                       className="flex items-start text-sm sm:text-base lg:text-lg text-black/60 dark:text-white/60 group-hover:text-black dark:group-hover:text-white transition-colors duration-500"
                     >
-                      <span className="mr-3 sm:mr-4 text-black/20 dark:text-white/20 group-hover:text-blue-500 transition-colors duration-500 mt-1">
-                        —
+                      <span className="mr-3 sm:mr-4 mt-1 text-black/20 dark:text-white/20 group-hover:text-blue-500 transition-colors duration-500">
+                        -
                       </span>
                       {point}
                     </li>
