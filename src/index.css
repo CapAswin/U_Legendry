@@ -299,13 +299,3 @@ html {
   /* scroll-behavior: smooth; */ /* Removed to let Lenis handle smooth scrolling */
   touch-action: pan-y; /* Allow vertical touch scroll on mobile while preserving custom smooth scroll behavior */
 }
-
-body {
-  padding-top: 4rem; /* keep content from hiding behind the fixed navbar */
-}
-
-@media (max-width: 640px) {
-  body {
-    padding-top: 3.6rem;
-  }
-}

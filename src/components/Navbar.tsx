@@ -32,7 +32,7 @@ export function Navbar() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[9999] flex justify-center pointer-events-none pt-2 sm:pt-4 px-2 sm:px-4 md:px-8 transition-all duration-500 bg-white dark:bg-black">
+    <div className="fixed top-0 left-0 right-0 z-[9999] flex justify-center pointer-events-none pt-2 sm:pt-4 px-2 sm:px-4 md:px-8 transition-all duration-500 bg-transparent">
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ export function Navbar() {
         className={cn(
           "pointer-events-auto flex items-center justify-between w-full transition-all duration-500 animate-float",
           scrolled
-            ? "w-full sm:max-w-4xl px-3 sm:px-4 py-2 bg-white dark:bg-black backdrop-blur-xl border border-black/15 dark:border-white/20 rounded-xl sm:rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_50px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_16px_50px_rgba(0,0,0,0.6)]"
+            ? "w-full sm:max-w-4xl px-3 sm:px-4 py-2 bg-transparent backdrop-blur-xl border border-black/15 dark:border-white/20 rounded-xl sm:rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.15)] dark:shadow-[0_12px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_16px_50px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_16px_50px_rgba(0,0,0,0.6)]"
             : "w-full sm:max-w-6xl lg:max-w-7xl px-2 py-2 bg-transparent border border-transparent rounded-none shadow-none",
         )}
       >
