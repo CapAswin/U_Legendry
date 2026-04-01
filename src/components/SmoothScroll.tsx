@@ -11,7 +11,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       smoothWheel: true,
       wheelMultiplier: 1.2, // Slightly increased
       touchMultiplier: 3, // Increased for better mobile feel
-      normalizeWheel: true, // Normalize wheel events
+      // normalizeWheel: true, // Normalize wheel events
     });
 
     // Handle anchor link clicks for smooth scrolling
