@@ -9,7 +9,9 @@ const projects = [
     title: "E-Commerce Platform",
     category: "Web Development",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1280&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=75&w=640&fm=webp",
     description:
       "Custom e-commerce solution with integrated payment systems and inventory management.",
   },
@@ -18,7 +20,9 @@ const projects = [
     title: "Brand Identity Redesign",
     category: "Branding & Design",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1280&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=75&w=640&fm=webp",
     description:
       "Complete brand overhaul including logo, website, and marketing materials for a tech startup.",
   },
@@ -27,7 +31,9 @@ const projects = [
     title: "Mobile App Launch",
     category: "App Development",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1280&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=75&w=640&fm=webp",
     description:
       "Cross-platform mobile application for a fitness and wellness company with social features.",
   },
@@ -36,7 +42,9 @@ const projects = [
     title: "SEO Campaign Success",
     category: "Digital Marketing",
     image:
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1280&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=75&w=640&fm=webp",
     description:
       "Comprehensive SEO strategy that increased organic traffic by 300% within 6 months.",
   },
@@ -101,7 +109,14 @@ export function Projects() {
 
               <img
                 src={project.image}
+                srcSet={`${project.imageSmall} 640w, ${project.image} 1280w`}
+                sizes="(max-width: 768px) 100vw, 90vw"
                 alt={project.title}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
+                decoding="async"
+                width="1280"
+                height="960"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
 
@@ -166,7 +181,14 @@ export function Projects() {
 
               <img
                 src={project.image}
+                srcSet={`${project.imageSmall} 640w, ${project.image} 1280w`}
+                sizes="(max-width: 1024px) 80vw, 45vw"
                 alt={project.title}
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
+                decoding="async"
+                width="1280"
+                height="960"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
 

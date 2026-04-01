@@ -1,19 +1,33 @@
 import { useEffect, ReactNode } from "react";
-import Lenis from "lenis";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.7,
-      easing: (t) => 1 - Math.pow(1 - t, 4),
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      wheelMultiplier: 1.1,
-      touchMultiplier: 2.2,
-    });
+    const connection = (
+      navigator as Navigator & {
+        connection?: { saveData?: boolean };
+      }
+    ).connection;
 
-    // Handle anchor link clicks for smooth scrolling
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      connection?.saveData
+    ) {
+      return;
+    }
+
+    let rafId = 0;
+    let idleId: number | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let canceled = false;
+    let lenisInstance: {
+      destroy: () => void;
+      raf: (time: number) => void;
+      scrollTo: (
+        target: number | HTMLElement,
+        options?: Record<string, unknown>,
+      ) => void;
+    } | null = null;
+
     const handleAnchorClick = (e: Event) => {
       const target = e.target;
       if (!(target instanceof Element)) return;
@@ -26,37 +40,84 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
       e.preventDefault();
 
+      const fallbackScroll = (scrollTarget: number | HTMLElement) => {
+        if (typeof scrollTarget === "number") {
+          window.scrollTo({ top: scrollTarget, behavior: "smooth" });
+          return;
+        }
+
+        scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
       if (hash === "#" || hash === "#hero") {
-        lenis.scrollTo(0, {
-          duration: 1.8,
-          lerp: 0.08,
-        });
+        if (lenisInstance) {
+          lenisInstance.scrollTo(0, { duration: 1.2 });
+        } else {
+          fallbackScroll(0);
+        }
         return;
       }
 
       const targetElement = document.querySelector(hash);
       if (targetElement instanceof HTMLElement) {
-        lenis.scrollTo(targetElement, {
-          offset: -80,
-          duration: 1.8,
-          lerp: 0.08,
-        });
+        if (lenisInstance) {
+          lenisInstance.scrollTo(targetElement, {
+            offset: -80,
+            duration: 1.2,
+          });
+        } else {
+          fallbackScroll(targetElement);
+        }
       }
     };
 
-    // Add event listener to document for anchor links
     document.addEventListener("click", handleAnchorClick);
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    const initialize = async () => {
+      const { default: Lenis } = await import("lenis");
+      if (canceled) return;
+
+      lenisInstance = new Lenis({
+        duration: 1.25,
+        easing: (t) => 1 - Math.pow(1 - t, 4),
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        wheelMultiplier: 1.05,
+        touchMultiplier: 1.8,
+      });
+
+      const raf = (time: number) => {
+        lenisInstance?.raf(time);
+        rafId = window.requestAnimationFrame(raf);
+      };
+
+      rafId = window.requestAnimationFrame(raf);
+    };
+
+    if ("requestIdleCallback" in window) {
+      idleId = window.requestIdleCallback(() => {
+        void initialize();
+      });
+    } else {
+      timeoutId = globalThis.setTimeout(() => {
+        void initialize();
+      }, 250);
     }
 
-    requestAnimationFrame(raf);
-
     return () => {
+      canceled = true;
       document.removeEventListener("click", handleAnchorClick);
-      lenis.destroy();
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+      if (idleId !== null && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== null) {
+        globalThis.clearTimeout(timeoutId);
+      }
+      lenisInstance?.destroy();
     };
   }, []);
 

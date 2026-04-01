@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    "Segoe UI", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
 
   --animate-blob: blob 7s infinite;
   --animate-marquee-left: marquee-left 40s linear infinite;
@@ -296,6 +297,38 @@
 }
 
 html {
-  /* scroll-behavior: smooth; */ /* Removed to let Lenis handle smooth scrolling */
-  touch-action: pan-y; /* Allow vertical touch scroll on mobile while preserving custom smooth scroll behavior */
+  scroll-behavior: smooth;
+  touch-action: pan-y;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+}
+
+a,
+button {
+  outline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(59 130 246 / 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

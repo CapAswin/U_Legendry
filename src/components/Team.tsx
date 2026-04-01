@@ -7,28 +7,36 @@ const team = [
     name: "Elena Rostova",
     role: "Creative Director",
     image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=720&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=75&w=360&fm=webp",
     bio: "Visionary designer with a passion for minimal aesthetics.",
   },
   {
     name: "Marcus Chen",
     role: "Lead Engineer",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=720&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=75&w=360&fm=webp",
     bio: "Full-stack architect specializing in high-performance systems.",
   },
   {
     name: "Sophia Patel",
     role: "Product Strategist",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=720&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=75&w=360&fm=webp",
     bio: "Data-driven product leader focused on user growth.",
   },
   {
     name: "Julian Vance",
     role: "UX Researcher",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=720&fm=webp",
+    imageSmall:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=75&w=360&fm=webp",
     bio: "Empathy-first researcher uncovering deep user insights.",
   },
 ];
@@ -67,28 +75,25 @@ export function Team() {
               <div className="relative mb-4 sm:mb-6 h-32 w-32 sm:h-36 sm:w-36 md:h-40 md:w-40 overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-900">
                 <img
                   src={member.image}
+                  srcSet={`${member.imageSmall} 360w, ${member.image} 720w`}
+                  sizes="(max-width: 640px) 128px, 160px"
                   alt={member.name}
+                  loading="lazy"
+                  decoding="async"
+                  width="160"
+                  height="160"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-3 sm:gap-4">
-                  <a
-                    href="#"
-                    className="text-white hover:text-neutral-300 transition-colors"
-                  >
+                  <span className="text-white/80" aria-label={`${member.name} LinkedIn`}>
                     <Linkedin className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-white hover:text-neutral-300 transition-colors"
-                  >
+                  </span>
+                  <span className="text-white/80" aria-label={`${member.name} GitHub`}>
                     <Github className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-white hover:text-neutral-300 transition-colors"
-                  >
+                  </span>
+                  <span className="text-white/80" aria-label={`${member.name} Twitter`}>
                     <Twitter className="h-3 w-3 sm:h-4 sm:w-4" />
-                  </a>
+                  </span>
                 </div>
               </div>
 

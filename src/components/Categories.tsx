@@ -141,6 +141,8 @@ export function Categories() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
+                type="button"
+                aria-pressed={activeTab === tab.id}
                 className={`text-sm sm:text-base tracking-wide transition-all duration-300 relative pb-3 sm:pb-4 -mb-3 sm:-mb-4 px-2 ${
                   activeTab === tab.id
                     ? "text-black dark:text-white font-medium"
